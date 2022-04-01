@@ -1,0 +1,87 @@
+# version of circleci config to use
+version: 2.1
+
+# orbs to use for the project
+# information: https://circleci.com/orbs/
+orbs:
+  node: circleci/node@5.0.0
+
+commands:
+    install-node:
+      description: "install node version 16.12.3 and yarn"
+      steps:
+        - node/install:
+            node-version: '16.13.2'
+            install-yarn: true
+
+executors:
+  node-executor:
+    docker:
+      - image: node:16.13.2
+
+# jobs that this workflow will run
+jobs:
+  setup:
+    # directory commands will run from by default
+    # usually set to organization/repo
+    working_directory: ~/API-market/node-ts-js-template
+    shell: /bin/bash --login -e
+    executor: node-executor
+    steps:
+      # checkout the code. Because the default working_directory is the name of the repo 
+      # we need to go up a directory thus the `path: ".."`
+      - checkout
+      - run: ls -lsah .. && pwd
+      # call `yarn install`
+      - node/install-packages:
+          pkg-manager: yarn
+      # call the linter
+      - run: yarn run lint
+      # save the installed modules and configured repo for the following steps
+      - persist_to_workspace:
+          root: ~/API-market
+          paths:
+            - node-ts-js-template
+
+  # job to run the tests
+  test:
+    # directory commands will run from by default
+    # usually set to organization/repo
+    working_directory: ~/API-market/node-ts-js-template
+    shell: /bin/bash --login -e
+    executor: node-executor
+    steps:
+      - attach_workspace:
+          at: ~/API-market
+      - run:
+          command: yarn run test
+
+  deploy:
+    # directory commands will run from by default
+    # usually set to organization/repo
+    working_directory: ~/API-market/node-ts-js-template
+    shell: /bin/bash --login -e
+    executor: node-executor
+    steps:
+      - attach_workspace:
+          at: ~/API-market
+      - run: yarn build
+
+# define the jobs to run
+workflows:
+  build_and_test:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - deploy:
+          requires:
+            - test
+          # only run deploy step on master/staging/dev
+          filters:
+            branches:
+              only:
+                - master
+                - staging
+                - dev
