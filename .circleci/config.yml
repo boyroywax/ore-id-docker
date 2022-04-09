@@ -7,12 +7,12 @@ orbs:
   node: circleci/node@5.0.0
 
 commands:
-    install-node:
-      description: "install node version 16.12.3 and yarn"
-      steps:
-        - node/install:
-            node-version: '16.13.2'
-            install-yarn: true
+  install-node:
+    description: 'install node version 16.12.3 and yarn'
+    steps:
+      - node/install:
+          node-version: '16.13.2'
+          install-yarn: true
 
 executors:
   node-executor:
@@ -28,7 +28,7 @@ jobs:
     shell: /bin/bash --login -e
     executor: node-executor
     steps:
-      # checkout the code. Because the default working_directory is the name of the repo 
+      # checkout the code. Because the default working_directory is the name of the repo
       # we need to go up a directory thus the `path: ".."`
       - checkout
       - run: ls -lsah .. && pwd

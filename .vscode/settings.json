@@ -1,47 +1,45 @@
 {
-    "js/ts.implicitProjectConfig.experimentalDecorators": true,
-    "workbench.colorCustomizations": {
-      "activityBar.background": "#5964fa",
-      "titleBar.inactiveBackground": "#5964fa",
-      "titleBar.activeBackground": "#5964fa"
-    },
-    "eslint.alwaysShowStatus": true,
-    "eslint.options": {
-      "configFile": ".eslintrc.json",
-      "extensions": [".html", ".js", ".jsx"]
-    },
-    "debug.node.autoAttach": "on",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "diffEditor.ignoreTrimWhitespace": true,
-    "eslint.validate": ["javascript", "javascriptreact", "html"],
-    "eslint.nodePath": "./node_modules/standard/node_modules/eslint/",
-    "prettier.ignorePath": "../web/.prettierignore",
-    "eslint.workingDirectories": [{ "mode": "auto" }],
-    "eslint.run": "onType",
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "eslint.codeAction.showDocumentation": {
-      "enable": true
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "terminal.integrated.cwd": "web",
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#5964fa",
+    "titleBar.inactiveBackground": "#5964fa",
+    "titleBar.activeBackground": "#5964fa"
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".jsx"]
+  },
+  "debug.node.autoAttach": "on",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "eslint.validate": ["javascript", "javascriptreact", "html"],
+  "eslint.nodePath": "./node_modules/standard/node_modules/eslint/",
+  "prettier.ignorePath": "../web/.prettierignore",
+  "eslint.workingDirectories": ["src"],
+  "eslint.run": "onType",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.markdown-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
-  
+  // "terminal.integrated.cwd": "web",
+}
