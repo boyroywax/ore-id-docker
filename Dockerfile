@@ -15,6 +15,7 @@ RUN yarn global add typescript --save-dev
 
 COPY src/ src/
 COPY ./public/ ./public/
+COPY ./.env ./
 
 EXPOSE 3000
 
