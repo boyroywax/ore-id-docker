@@ -16,10 +16,6 @@ RUN yarn global add typescript --save-dev
 COPY src/ src/
 COPY ./public/ ./public/
 
+EXPOSE 3000
+
 CMD ["yarn",  "start"]
-
-
-
-
-
-
